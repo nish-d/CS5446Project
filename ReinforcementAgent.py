@@ -27,7 +27,7 @@ class ReinforcementAgent():
             
         
     #Action
-    def Action(self, stage , selected):
+    def takeAction(self, stage ,opp_action, selected):
         m = [1-self.p, self.p]
         if(stage == 1 and self.informed == False):
             #player 2 plays random action:
