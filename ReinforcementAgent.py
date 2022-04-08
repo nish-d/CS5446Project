@@ -15,6 +15,11 @@ class ReinforcementAgent():
         self.propensityA = propensityA
         self.propensityB = propensityB
         self.sda = sda
+        self.strength = 6
+    
+    def reinit_propensity(self):
+        self.propensityA = random.randint(1,5)
+        self.propensityB = random.randint(1,5)
     
     #updating the propensity based on Roth - Erev reinforcement model
     def update_propensity(self,payoff, action_by_player):
@@ -38,9 +43,9 @@ class ReinforcementAgent():
                 return self.sda[0]   #A
             else:
                 return self.sda[1]   #B
-        strength = self.propensityA + self.propensityB 
-        self.m[0] = self.propensityA / strength
-        self.m[1] = self.propensityB / strength
+        self.strength = self.strength + self.propensityA + self.propensityB 
+        self.m[0] = self.propensityA / self.strength
+        self.m[1] = self.propensityB / self.strength
         action = random.choices(self.strategy, m)
         return action[0]
 

@@ -82,7 +82,7 @@ class BeliefLearningAgent(Agent):
             matrix_probabilities = self.findMatrixFromSDA(self.m)
             # matrix_probabilities[0] is the prob of left matrix being selected
             expectedPayOff = matrix_probabilities[0] * \
-                             self.payoffMatrixLeft[self.actionDict[opp_action]][self.actionDict[action]][self.playerNo]
+            self.payoffMatrixLeft[self.actionDict[opp_action]][self.actionDict[action]][self.playerNo] 
             + matrix_probabilities[1] * self.payoffMatrixRight[self.actionDict[opp_action]][self.actionDict[action]][
                 self.playerNo]
         return expectedPayOff
